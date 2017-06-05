@@ -1,0 +1,78 @@
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+
+main_page:
+    path: /
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Editor:index }
+
+bridge:
+    path: /bridge/list
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:List }
+
+bridge_upload:
+    path: /bridge/upload
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Upload }
+
+bridge_rename:
+    path: /bridge/rename
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Rename }
+
+bridge_copy:
+    path: /bridge/copy
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Copy }
+
+bridge_move:
+    path: /bridge/move
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Move }
+
+bridge_remove:
+    path: /bridge/remove
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Remove }
+
+bridge_edit:
+    path: /bridge/edit
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Edit }
+
+bridge_get_content:
+    path: /bridge/get_content
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:GetContent }
+
+bridge_create_folder:
+    path: /bridge/create_folder
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:CreateFolder }
+
+bridge_download_file:
+    path: /bridge/download_file
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:DownloadFile }
+
+bridge_download_multiple:
+    path: /bridge/download_multiple
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:DownloadMultiple }
+
+bridge_compress:
+    path: /bridge/compress
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Compress }
+
+bridge_extract:
+    path: /bridge/extract
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Extract }
+
+bridge_permissions:
+    path: /bridge/permissions
+    methods: [GET, POST]
+    defaults: { _controller: AppBundle:Bridge:Permissions }

@@ -1,0 +1,37 @@
+services:
+    s3.client:
+        class: Aws\S3\S3Client
+        factory: Aws\S3\S3Client::factory
+        arguments:
+            -
+                region: '%s3.region%'
+                version: 'latest'
+                credentials:
+                    key: '%s3.aws_key%'
+                    secret: '%s3.aws_secret_key%'
+                S3:
+                    version: '2006-03-01'
+
+    app.filesystem.s3:
+        class: Gaufrette\Filesystem
+        factory: [ 'AppBundle\Services\Filesystem\FilesystemManager', createFilesystem ]
+        arguments: [ '%app.filesystem.s3%', '@knp_gaufrette.filesystem_map' ]
+
+#    app.filesystem.dropbox:
+#        class: Gaufrette\Filesystem
+#        factory: [ 'AppBundle\Services\Filesystem\FilesystemManager', createFilesystem ]
+#        arguments: [ '%app.filesystem.dropbox%', '@knp_gaufrette.filesystem_map' ]
+#
+#    fs.dropbox.oauth:
+#        class: Dropbox_OAuth_Curl
+#        arguments: [ '%fs.dropbox.key%', '%fs.dropbox.secret%' ]
+#        calls:
+#            - [setToken, ["%fs.dropbox.token%", "%fs.dropbox.token_secret%"]]
+#    fs.dropbox.api:
+#        class: Dropbox_API
+#        arguments: [ '@fs.dropbox.oauth', "sandbox"]
+
+    reader.filesystem.s3:
+        class: AppBundle\Services\Filesystem\FileReader
+        arguments:
+          - '@app.filesystem.s3'
